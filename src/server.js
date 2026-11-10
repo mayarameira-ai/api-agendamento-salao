@@ -5,10 +5,10 @@ import servicosRoutes from './routes/servicosRoutes.js';
 import agendamentoRoutes from './routes/agendamentoRoutes.js'
 const app = express();
 app.use(express.json());
-app.use(clienteRoutes);
-app.use(profissionalRoutes);
-app.use(servicosRoutes);
-app.use(agendamentoRoutes);
+app.use('/clientes', clienteRoutes);
+app.use('/profissionais', profissionalRoutes);
+app.use('/servicos', servicosRoutes);
+app.use('/agendamentos', agendamentoRoutes);
 
 app.get('/', (req, res) => {
         res.json({
