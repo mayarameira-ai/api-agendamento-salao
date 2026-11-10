@@ -1,18 +1,11 @@
-import express from 'express';
-import {
-     listarServicos,
-     criarServico,
-    buscarServicoPorId,
-    atualizarServico,
-    excluirServico
-} from '../controllers/servicoController.js';
+import { Router } from 'express';
+import * as controller from '../controllers/servicoController.js';
 
-const router = express.Router();
+const router = Router();
 
-router.get('/servicos', listarServicos);
-router.post('/servicos', criarServico);
-router.get('/servicos/:id', buscarServicoPorId);
-router.put('/servicos/:id', atualizarServico);
-router.delete('/servicos/:id', excluirServico);
-
+router.get('/', controller.listarServicos());
+router.post('/', controller.criarServico());
+router.get('/:id', controller.buscarServicoPorId());
+router.put('/:id', controller.atualizarServico());
+router.delete('/:id', controller.excluirServico());
 export default router;
